@@ -2,7 +2,7 @@
 
 using namespace std;
 
-enum PokemonChoice{
+enum class PokemonChoice{
     Bulbasaur,
     Charmander,
     Squirtle,
@@ -42,43 +42,43 @@ int main() {
     switch (playerChoice)
     {
     case 1:
-        chosen_pokemon = Bulbasaur;
+        chosen_pokemon = PokemonChoice::Bulbasaur;
         break;
     case 2:
-        chosen_pokemon = Charmander;
+        chosen_pokemon = PokemonChoice::Charmander;
         break;
     case 3:
-        chosen_pokemon = Squirtle;
+        chosen_pokemon = PokemonChoice::Squirtle;
         break;        
     
     default:
-        chosen_pokemon = Invalid_Choice;
+        chosen_pokemon = PokemonChoice::Invalid_Choice;
         break;
     }
 
 
     switch (chosen_pokemon)
     {
-    case Bulbasaur:
+    case PokemonChoice::Bulbasaur:
         cout << "You chose Bulbasaur! A wise choice indeed. This little guy will be your steady partner through thick and thin, trust me." << endl;
         cout << "Bulbasaur looks up at you with big, trusting eyes, ready for an adventure!" << endl;
         break;
-    case Charmander:
+    case PokemonChoice::Charmander:
         cout << "You chose Charmander! A fiery choice, full of energy and potential. Watch out, though, that tail flame means business!" << endl;
         cout << "Charmander lets out a cheerful growl, its tail flame burning brightly as it anticipates the challenges ahead." << endl;
         break;
-    case Squirtle:
+    case PokemonChoice::Squirtle:
         cout << "You chose Squirtle! A cool, composed choice. This little turtle will help you navigate through any stormy waters you encounter." << endl;
         cout << "Squirtle gives you a confident nod, ready to splash into battle whenever you are!" << endl;
     default:
             cout << "Professor Oak: Hmm, that doesn't seem right. Let me choose for you...\n";
-            chosen_pokemon = Charmander; 
+            chosen_pokemon = PokemonChoice::Charmander; 
             cout << "Professor Oak: Just kidding! Let's go with Charmander, the fiery dragon in the making!\n";
             break;
         break;
     }
     
-    cout << "\nWell, " << player_name << ", your journey begins now. Go forth, explore the world of Pokémon with your mate " <<(chosen_pokemon == Charmander ? "Charmander" : chosen_pokemon == Bulbasaur ? "Bulbasaur" : "Squirtle")<< ", and remember—there's a whole world waiting for you!" << endl;
+    cout << "\nWell, " << player_name << ", your journey begins now. Go forth, explore the world of Pokémon with your mate " <<(chosen_pokemon == PokemonChoice::Charmander ? "Charmander" : chosen_pokemon == PokemonChoice::Bulbasaur ? "Bulbasaur" : "Squirtle")<< ", and remember—there's a whole world waiting for you!" << endl;
     
     return 0;
 }
