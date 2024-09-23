@@ -29,26 +29,27 @@ int main() {
     cout << "1) Bulbasaur.\n2) Charmander.\n3) Squirtle.\n" << endl;
     
     cout << "So, " << player_name << ", which Pokémon will be your loyal companion? Enter 1, 2, or 3: ";
-    cin >> playerChoice;
+    cin >> playerChoice ;
+    cout<<"\n";
 
-    
-    if (playerChoice == 1) {
+    switch (playerChoice)
+    {
+    case 1:
         cout << "You chose Bulbasaur! A wise choice indeed. This little guy will be your steady partner through thick and thin, trust me." << endl;
         cout << "Bulbasaur looks up at you with big, trusting eyes, ready for an adventure!" << endl;
-    }
-    else if (playerChoice == 2) {
+        break;
+    case 2:
         cout << "You chose Charmander! A fiery choice, full of energy and potential. Watch out, though, that tail flame means business!" << endl;
         cout << "Charmander lets out a cheerful growl, its tail flame burning brightly as it anticipates the challenges ahead." << endl;
-    }
-    else if (playerChoice == 3) {
+        break;
+    case 3:
         cout << "You chose Squirtle! A cool, composed choice. This little turtle will help you navigate through any stormy waters you encounter." << endl;
         cout << "Squirtle gives you a confident nod, ready to splash into battle whenever you are!" << endl;
+    default:
+         cout << "You chose Pikachu! A Thunder, great choice. This little is all about thunder and mischiefs." << endl;
+        
+        break;
     }
-    else {
-        cout << "Hmm... seems like you're a bit confused. That wasn't a valid choice." << endl;
-        cout << "Better restart the game and pick one of the three, my young trainer." << endl;
-    }
-
     
     cout << "\nWell, " << player_name << ", your journey begins now. Go forth, explore the world of Pokémon, and remember—there's a whole world waiting for you!" << endl;
     
