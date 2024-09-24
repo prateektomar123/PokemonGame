@@ -12,6 +12,7 @@ enum class PokemonChoice{
     Bulbasaur,
     Charmander,
     Squirtle,
+    Pikachu,
     Invalid_Choice
 
 };
@@ -20,6 +21,18 @@ class Pokemon{
     PokemonType type;
     int health;
 
+    Pokemon(){
+        name = "Pikachu";
+        type = PokemonType::Electric;
+        health = 10;
+    }
+    
+    // Parameterized Constructor
+    Pokemon(string p_name, PokemonType p_type, int p_health){
+        name = p_name;
+        type = p_type;
+        health = p_health;
+    }
     void attack(){
         cout <<"<Pokemon> attacks with a powerful move!" << endl;
     }
@@ -31,8 +44,23 @@ class Player{
     PokemonChoice chosenPokemon;
 
     Player(){
+        name = "Trainer";
+        chosenPokemon = PokemonChoice::Pikachu;
+    }
+
+    // Parameterized Constructor
+    Player(string p_name, PokemonChoice p_chosenPokemon){
+        name = p_name;
+        chosenPokemon = p_chosenPokemon;
 
     }
+
+    // copy contructor 
+    Player(const Player &p) { 
+	name = p.name; 
+	chosenPokemon = p.chosenPokemon; 
+	
+}
     void choosePokemon(int choice){
     
     switch (choice)
