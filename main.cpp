@@ -9,7 +9,11 @@ void WaitforEnter(){
     cin.get();
 }
 void clearConsole(){
-
+#ifdef _WIN32
+  system("cls");
+#else
+  (void)system("clear");
+#endif
 }
 enum class PokemonType{
    FIRE,
@@ -43,6 +47,11 @@ public:
         name = p_name;
         type = p_type;
         health = p_health;
+    }
+    Pokemon(const Pokemon &other) {
+        name = other.name;
+        type = other.type;
+        health = other.health;
     }
     ~Pokemon() {
         // Destructor message removed
@@ -170,9 +179,53 @@ class ProfessorOak{
         WaitforEnter();
         cout<<"Professor Oak: Oh, and about the actual game loop… let’s just pretend I didn’t forget to set it up. Onwards!"<<endl;
     }
+    
+    };
 
-};
-int main(){
+    void gameLoop(Player &player)
+    {
+        bool keepPlaying = true;
+        while (keepPlaying)
+        {
+            int choice;
+            cout<< "What would you like to do next - " << player.name <<endl;
+            cout<< "1)Battle Wild Pokémon\n 2)Visit PokeCenter\n 3)Challenge Gyms\n 4)Enter Pokémon League\n 5)Quit"<<endl;
+            cout << "Enter your choice: ";
+	        cin >> choice;
+            
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            switch (choice)
+            {
+            case 1:
+                cout<< "You look around... but all the wild Pokemon are on vacation. Maybe try again later?\n";
+                break;
+            case 2:
+                cout<< "You head to the PokeCenter, but Nurse Joy is out on a coffee break. Guess your Pokemon will have to tough it out for now!\n";
+                break;
+            case 3:
+                cout<<  "You march up to the Gym, but it's closed for renovations. Seems like even Gym Leaders need a break!\n";
+                break;
+            case 4:
+                cout<<  "You boldly step towards the Pokemon League... but the gatekeeper laughs and says, 'Maybe next time, champ!'\n";
+                break;
+            case 5:
+                cout<<  "You try to quit, but Professor Oak's voice echoes: 'There's no quitting in Pokemon training!'\n";
+                cout << "Are you sure you want to quit? (y/n): ";
+                char quitChoice;
+                cin >> quitChoice;
+                if (quitChoice == 'y' || quitChoice == 'Y') {
+                    keepPlaying = false;
+                }
+                break;            
+            default:cout << "That's not a valid choice. Try again!\n";
+                break;
+            }
+            WaitforEnter(); 
+        }
+        cout << "Goodbye, " << player.name << "! Thanks for playing!\n";
+        
+    }
+    int main(){
 
     Pokemon charmander("Charmander", PokemonType::FIRE, 100); // Using parameterized constructor
 
@@ -188,7 +241,7 @@ int main(){
     professor.explainMainQuest(player);
 
     
-    cout << "\n[Placeholder for the Game Loop]\n";
+    gameLoop(player);
 
     return 0;
     
