@@ -4,7 +4,6 @@
 #include "Utility.hpp"
 #include "iostream"
 using namespace std;
-
     Player :: Player(){
         name = "Trainer";
         chosenPokemon = Pokemon();
@@ -17,12 +16,12 @@ using namespace std;
 
     }
 
-    // copy contructor 
-    Player :: Player(const Player &p) { 
-	name = p.name; 
-	chosenPokemon = p.chosenPokemon; 
+    // // copy contructor 
+    // Player :: Player(const Player &p) { 
+	// name = p.name; 
+	// chosenPokemon = p.chosenPokemon; 
 	
-    }
+    // }
 
     void Player :: choosePokemon(int choice) {
         switch ((PokemonChoice)choice) {
