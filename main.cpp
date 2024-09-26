@@ -1,5 +1,6 @@
 #include<iostream>
-
+#include "PokemonType.hpp"
+#include "PokemonChoice.hpp"
 
 using namespace std;
 
@@ -16,21 +17,9 @@ void clearConsole(){
   (void)system("clear");
 #endif
 }
-enum class PokemonType{
-   FIRE,
-    GRASS,
-    WATER,
-    ELECTRIC,
-    NORMAL 
-};
 
-enum class PokemonChoice{
-    CHARMANDER = 1,
-    BULBASAUR,
-    SQUIRTLE,
-    PIKACHU
 
-};
+
 class Pokemon{
 public:
     string name;
@@ -247,4 +236,4 @@ class ProfessorOak{
     return 0;
     
     
-#include "header.hpp"
+}
