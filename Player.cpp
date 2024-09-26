@@ -1,11 +1,10 @@
 #include "Player.hpp"
-
 #include "PokemonChoice.hpp"
 #include "PokemonType.hpp"
 #include "Utility.hpp"
-#include <iostream>
-
+#include "iostream"
 using namespace std;
+
     Player :: Player(){
         name = "Trainer";
         chosenPokemon = Pokemon();

@@ -1,7 +1,5 @@
 
-#include "Player.hpp"
 #include "PokemonChoice.hpp"
-
 #include "Utility.hpp"
 #include <iostream>
 #include <limits> // Include this header to use numeric_limits
@@ -9,8 +7,9 @@
 using namespace std;
 
 
-
-
+class Player;
+class Pokemon;
+enum PokemonType;
 
 class ProfessorOak{
     public:
