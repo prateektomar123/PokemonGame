@@ -1,8 +1,8 @@
+
 #include<iostream>
 #include "PokemonType.hpp"
 #include "PokemonChoice.hpp"
 #include "Utility.hpp"
-#include "Player.hpp"
 #include <limits>
 #include <string>
 using namespace std;
@@ -39,6 +39,7 @@ public:
     }
 };
 
+#include "Player.hpp"
 
 
 class ProfessorOak{
