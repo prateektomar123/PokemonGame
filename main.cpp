@@ -1,45 +1,15 @@
 
-#include<iostream>
-#include "PokemonType.hpp"
+#include "Player.hpp"
 #include "PokemonChoice.hpp"
+
 #include "Utility.hpp"
-#include <limits>
+#include <iostream>
+#include <limits> // Include this header to use numeric_limits
 #include <string>
 using namespace std;
 
 
-class Pokemon{
-public:
-    string name;
-    PokemonType type;
-    int health;
 
-    Pokemon(){
-        name = "Unknown";
-        type = PokemonType::NORMAL;
-        health = 50;
-    }
-
-    // Parameterized Constructor
-    Pokemon(string p_name, PokemonType p_type, int p_health){
-        name = p_name;
-        type = p_type;
-        health = p_health;
-    }
-    Pokemon(const Pokemon &other) {
-        name = other.name;
-        type = other.type;
-        health = other.health;
-    }
-    ~Pokemon() {
-        // Destructor message removed
-    }
-    void attack(){
-        cout << name <<" attacks with a powerful move!" << endl;
-    }
-};
-
-#include "Player.hpp"
 
 
 class ProfessorOak{
@@ -162,7 +132,7 @@ class ProfessorOak{
     }
     int main(){
 
-    Pokemon charmander("Charmander", PokemonType::FIRE, 100); // Using parameterized constructor
+    Pokemon charmander("Charmander", PokemonType :: FIRE, 100); // Using parameterized constructor
 
    
     ProfessorOak professor("Professor Oak");
@@ -172,7 +142,7 @@ class ProfessorOak{
     professor.greetPlayer(player);
     professor.offerPokemonChoices(player);
 
-    Utility::clearConsole();
+    Utility :: clearConsole();
     professor.explainMainQuest(player);
 
     

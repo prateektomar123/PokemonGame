@@ -1,5 +1,6 @@
+
 enum class PokemonType{
-   FIRE,
+    FIRE,
     GRASS,
     WATER,
     ELECTRIC,

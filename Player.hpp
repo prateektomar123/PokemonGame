@@ -1,16 +1,14 @@
 #include <string>
-
-#include "Utility.hpp"
-
-using namespace std;
-
-class Player{
+#include "Pokemon.hpp"
+using namespace std;  
+  
+class Player {
 public:
     string name;
-    Pokemon chosenPokemon;    
+    Pokemon chosenPokemon;
 
     Player(); // Default constructor
-    Player(string p_name, Pokemon p_chosenPokemon); // Parameterized constructor
+    Player(std::string p_name, Pokemon p_chosenPokemon); // Parameterized constructor
 
-    void choosePokemon(int choice);
+    void choosePokemon(int choice); // Method to choose a Pokemon
 };
