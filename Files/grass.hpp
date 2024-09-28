@@ -1,17 +1,11 @@
-#include<string>
-#include<vector>
+#include <string>
+#include <vector>
 using namespace std;
 
-struct Grass
-{
-    vector<WildPokemon> wildPokemonList;
-    int encounterRate;
-    string environmentType;
+class Pokemon;
 
-};
-
-Grass forestGrass ={
-"Forest",
-{{"Zubat",PokemonType :: Poison,30},{"Caterpie", PokemonType :: FLEE,50},{"Pidgey", PokemonType :: FLY,50}},
-80
+struct Grass {
+    string environmentType;  // Example: "Forest", "Cave", "Riverbank"
+    vector<Pokemon> wildPokemonList;  // List of wild Pokémon in this grass
+    int encounterRate;  // Likelihood of encountering a wild Pokémon, out of 100
 };
