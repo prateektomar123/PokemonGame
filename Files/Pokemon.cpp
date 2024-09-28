@@ -44,9 +44,10 @@ bool Pokemon::isFainted() const{
 
 
 void Pokemon::attack(Pokemon &target) {
-  int damage = 10;
+  int damage = attackPower;
 
   cout << name << " attacks " << target.name << " for " << damage << " damage!\\n";
+  target.TakeDamage(damage);
 }
 
 void Pokemon::battle(Pokemon &playerPokemon, Pokemon &wildPokemon){
@@ -65,4 +66,8 @@ void Pokemon::battle(Pokemon &playerPokemon, Pokemon &wildPokemon){
     } else {
         cout << "You defeated the wild " << wildPokemon.name << "!\\n";
     }
+}
+
+void Pokemon::heal(){
+  health = maxHealth;
 }
