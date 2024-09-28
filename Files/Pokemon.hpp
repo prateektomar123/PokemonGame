@@ -7,6 +7,7 @@ public:
     string name;
     PokemonType type;
     int health;
+    int maxHealth;
 
     // Default constructor
     Pokemon();
@@ -20,5 +21,10 @@ public:
     // Destructor
     ~Pokemon();
 
-    void attack();
+    void TakeDamage(int damage);
+
+    bool isFainted() const;
+    void attack(Pokemon &target);
+
+    void battle(Pokemon &playerPokemon, Pokemon &wildPokemon);
 };
