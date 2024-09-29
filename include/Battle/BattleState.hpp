@@ -1,7 +1,8 @@
 #pragma once
 #include "../../include/Pokemon/Pokemon.hpp"
 
-
+namespace N_Battle
+{
 struct BattleState
 {
     Pokemon *playerPokemon;
@@ -9,3 +10,4 @@ struct BattleState
     bool playerTurn;
     bool battleOnGoing;
 };
+}

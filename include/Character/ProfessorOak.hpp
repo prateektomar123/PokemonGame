@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+namespace N_ProfessorOak
+{
 class Player;
 
 class ProfessorOak {
@@ -12,3 +14,4 @@ public:
   void offerPokemonChoices(Player &player);
   void explainMainQuest(Player &player);
 };
+}

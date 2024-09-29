@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 
+namespace N_Pokemon
+{
 class Pokemon;
 
 struct Grass {
@@ -9,3 +11,4 @@ struct Grass {
     std::vector<Pokemon> wildPokemonList;  // List of wild Pokémon in this grass
     int encounterRate;  // Likelihood of encountering a wild Pokémon, out of 100
 };
+}
