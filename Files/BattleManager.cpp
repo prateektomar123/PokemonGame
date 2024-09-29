@@ -4,30 +4,50 @@
 using namespace std;
 
 void BattleManager::startBattle(Player &player, Pokemon &wildPokemon){
+        battleState.playerPokemon = &player.chosenPokemon;
+        battleState.wildPokemon = &wildPokemon;
+        battleState.playerTurn = true;  // Player starts first
+        battleState.battleOnGoing = true;
         cout << "A wild " << wildPokemon.name << " appeared!\n";
-        battle(player.chosenPokemon, wildPokemon);
+        battle();
 }
-void BattleManager::battle(Pokemon &playerPokemon, Pokemon &wildPokemon){
-  cout << "A wild " << wildPokemon.name << " appeared!\n";
+void BattleManager::battle(){
 
-    while (!playerPokemon.isFainted() && !wildPokemon.isFainted()) {
-        playerPokemon.attack(wildPokemon); // Player attacks first
-
-        if (!wildPokemon.isFainted()) {
-            wildPokemon.attack(playerPokemon); // Wild Pokémon attacks back
+    while (battleState.battleOnGoing)
+    {
+        if (battleState.playerTurn)
+        {
+            battleState.playerPokemon -> attack(*battleState.wildPokemon);
         }
-    }
-    Utility::waitForEnter();
-    handleBattleOutcome(playerPokemon,playerPokemon.isFainted());
+        else{
+            battleState.wildPokemon -> attack(*battleState.playerPokemon);
+        }
 
+        updateBattleState();
+
+        battleState.playerTurn = !battleState.playerTurn;
+        Utility::waitForEnter();
+        
+    }
+    
+    handleBattleOutcome();
+  
     
 }
 
-void BattleManager::handleBattleOutcome(){
-    if (playerPokemon.isFainted()) {
-        cout << "Oh no! "<<playerPokemon.name << " fainted! You need to visit the PokeCenter.\n";
+void BattleManager::handleBattleOutcome() {
+    if (battleState.playerPokemon->isFainted()) {
+        std::cout << battleState.playerPokemon->name << " has fainted! You lose the battle.\\n";
     } else {
-        cout << playerPokemon.name << "is victorious! Keep an eye on your Pokémon's health.";
+        std::cout << "You defeated the wild " << battleState.wildPokemon->name << "!\\n";
+    }
+}
+
+void BattleManager::updateBattleState() {
+    if (battleState.playerPokemon->isFainted()) {
+        battleState.battleOnGoing = false;
+    } else if (battleState.wildPokemon->isFainted()) {
+        battleState.battleOnGoing = false;
     }
 }
 
