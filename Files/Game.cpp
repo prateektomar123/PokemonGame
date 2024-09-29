@@ -41,9 +41,8 @@ void Game::gameLoop(Player &player) {
     case 1: {
       // Create a scope within case 1
       WildEncounterManager encounterManager;
-      Pokemon encounteredPokemon =
-          encounterManager.getRandomPokemonFromGrass(forestGrass);
-      cout << "A wild " << encounteredPokemon.name << " appeared!\n";
+      Pokemon wildPokemon = encounterManager.getRandomPokemonFromGrass(forestGrass);
+      battleManager.startBattle(player, wildPokemon);
       break;
     }
     case 2: {
