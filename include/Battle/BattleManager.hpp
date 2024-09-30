@@ -10,7 +10,7 @@ namespace N_Battle
 
     class BattleManager {
     public:
-        void startBattle(Player* player, N_Pokemon::Pokemon* wildPokemon);
+        void startBattle(Player* player);
     private:
         BattleState battleState;  
 
