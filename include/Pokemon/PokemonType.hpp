@@ -1,13 +1,14 @@
-// Define an enum for Pokemon types
-namespace N_Pokemon
-{
+namespace N_Pokemon {
+  
+  // Define an enum for Pokemon types
   enum class PokemonType {
-  FIRE,
-  GRASS,
-  WATER,
-  ELECTRIC,
-  NORMAL,
-  POISON,
-  BUG
-};
+    FIRE,
+    GRASS,
+    WATER,
+    ELECTRIC,
+    NORMAL,
+    POISON,
+    BUG
+  };
+
 }

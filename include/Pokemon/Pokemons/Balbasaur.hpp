@@ -6,10 +6,10 @@ namespace N_Pokemon {
     
     class Balbasaur : public Pokemon {
     private:
-    void vineWhip(Pokemon &target);
     
     public:
       Balbasaur();
+      void vineWhip(Pokemon &target);
       
     };
     

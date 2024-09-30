@@ -4,11 +4,19 @@
 #include <cstdlib> // For rand()
 #include <ctime>   // For time()
 
-WildEncounterManager::WildEncounterManager() {
-  srand(time(0)); // Seed the random number generator
-}
+namespace N_Battle
+{
+  using namespace N_Pokemon;
 
-Pokemon WildEncounterManager::getRandomPokemonFromGrass(const Grass &grass) {
-  int randomIndex = rand() % grass.wildPokemonList.size();
-  return grass.wildPokemonList[randomIndex];
+  WildEncounterManager::WildEncounterManager() {
+    srand(time(0)); // Seed the random number generator
+  }
+
+  Pokemon* WildEncounterManager::getRandomPokemonFromGrass(const Grass &grass) {
+    int randomIndex = rand() % grass.wildPokemonList.size();
+
+    Pokemon* wildPokemon = grass.wildPokemonList[randomIndex];
+
+    return wildPokemon;
+  }
 }
