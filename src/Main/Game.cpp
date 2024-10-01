@@ -28,7 +28,6 @@ namespace N_Main
     bool keepPlaying = true;
     BattleManager* battleManager = new BattleManager();
     WildEncounterManager* encounterManager = new WildEncounterManager();
-   
 
     while (keepPlaying) {
       // Clear console before showing options
@@ -90,7 +89,6 @@ namespace N_Main
     }
 
     cout << "Goodbye, " << player->name << "! Thanks for playing!\n";
-
     
     delete(encounterManager);
     delete(battleManager);
@@ -108,8 +106,9 @@ namespace N_Main
       std::cout << player->chosenPokemon->name << "'s health is fully restored!\n";
     }
   }
-  Game::~Game(){
-    delete(wildPokemon);
-}
 
+  Game::~Game()
+  {
+    delete(wildPokemon);
+  }
 }
