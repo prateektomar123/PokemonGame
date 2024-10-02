@@ -4,14 +4,11 @@
 namespace N_Pokemon {
   namespace N_Pokemons {
     
-    class Balbasaur : public Pokemon {
-    private:
-    void vineWhip(Pokemon &target);
-    
+    class Caterpie : public Pokemon {
     public:
-      Balbasaur();
-      
+      Caterpie();
+      void attack(Move selectedMove, Pokemon* target) override; 
     };
-    
+
   }
 }
