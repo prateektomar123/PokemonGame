@@ -1,15 +1,32 @@
-#pragma once
-#include "../Pokemon.hpp"
+#include "../../../include/Pokemon/Pokemons/Caterpie.hpp"
+#include "../../../include/Pokemon/PokemonType.hpp"
+#include "../../../include/Pokemon/Move.hpp"
+#include <iostream>
 
 namespace N_Pokemon {
-  namespace N_Pokemons {
+    namespace N_Pokemons {
     
-    class Caterpie : public Pokemon {
-    public:
-      Caterpie();
-      void attack(Pokemon &target) override;
-    //   void bugBite(Pokemon* target);
-    };
+        using namespace std;
+        
+        Caterpie::Caterpie()
+            : Pokemon("Caterpie", PokemonType::BUG, 75, {
+                Move("TACKLE", 10),
+                Move("STRING SHOT", 5),
+                Move("STICKY WEB", 10)
+            }) {}
+          
+        void Caterpie::attack(Move selectedMove, Pokemon* target)
+        {
+            Pokemon::attack(selectedMove, target);
+            
+            if(selectedMove.name == "STICKY WEB")
+            {
+                // Reduce the target's next attack damage (for simplicity, reducing by a fixed value)
+                int reducedDamage = 5;
+                target->reduceAttackPower(reducedDamage);
+                std::cout << target->name << "'s next attack will be reduced by " << reducedDamage << " damage!\n";
+            }
+        }
 
   }
 }
